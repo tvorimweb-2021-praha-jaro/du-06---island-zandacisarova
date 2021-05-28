@@ -1,4 +1,13 @@
-*, ::after, ::before { box-sizing: border-box; }
+html {
+    box-sizing: border-box;
+}
+ 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 
 :root {
     --pozadi: #f5f5f5;
@@ -6,9 +15,10 @@
 }
 
 body {
-    width: auto;
-    margin: 0;
+    max-width: 960px;
     font-family: 'Merriweather', serif;
+    margin: 0;
+    
     
 }
 
@@ -18,11 +28,274 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    padding: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    
+    
+    
     
 }
 
-.linie {
-    text-decoration: overline;
+p {
+    font-size: 13pt;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    line-height: 1.5;
 }
+
+h1 {
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+.linie {
+    border: 1px solid white;
+    background-color: white;
+    width: 85px;
+    opacity: 75%;
+    margin-top: 1rem;
+    
+}
+
+.modra-linie {
+    border: 2.5px solid var(--linka);
+    background-color: var(--linka);
+    width: 100px;
+    margin: 2.5rem;
+    margin-left: -2.5rem;
+}
+
+.container {
+    box-shadow: 0 10px 25px rgba(128, 128, 128, 0.4);
+    
+
+}
+
+img {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: -0.5rem;
+}
+
+[alt="Island"] {
+    margin-top: 4rem;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    padding: 2.5rem;
+    font-family: "Raleway"; 
+    font-weight: 200;
+
+}
+nav a {
+    text-transform: uppercase;
+    color: grey;
+    padding: 0.5rem;
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.1);
+    font-size: 10pt;
+}
+
+.uvod,
+.tema {
+    padding: 0 1.5rem;   
+}
+
+
+
+
+.fotka p,
+li p,
+footer p {
+    text-align: center;
+    color: grey;
+    font-size: 11pt;
+    font-family: 'Raleway', sans-serif ;
+    font-weight: 200;
+
+}
+
+.fotka a,
+li a, 
+footer a{
+    color: grey;
+}
+
+
+
+.popisek-fotky {
+    font-weight: bold;
+    font-size: 13pt;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul:last-child {
+    padding-bottom: 1.5rem ;
+}
+
+ul li:first-child img{
+    margin-top: 0;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 24pt;
+    margin-top: 3rem;
+}
+
+.fotogalerie h2 {
+    padding-left: 2rem;
+}
+
+.mista {
+    font-weight: 900;
+}
+
+.tema .fotka {
+    margin: -2rem;
+    margin-bottom: 4rem;
+}
+
+.fotogalerie {
+    padding: 0;
+    margin: 0;
+}
+
+.popisky p {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    
+}
+
+.popisky {
+    margin-top: 1.7rem;
+}
+
+footer {
+    padding: 1.5rem 2rem;
+}
+
+footer p:last-child {
+    margin-top: 1rem;
+}
+
+footer p {
+    text-align: left;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;  
+}
+
+.co-musite-videt p:last-child {
+    margin-bottom: 6rem;
+}
+
+@media screen and (min-width: 480px) {
+    nav {
+        
+        flex-flow: row nowrap;
+        flex-grow: 1;
+        
+    }
+
+    nav a {
+        border: 0.5px solid rgba(128, 128, 128, 0.1);
+    }
+
+    nav a:first-child {
+        border-left: none;
+    }
+
+    nav a:last-child {
+        border-right: none;
+    }
+
+    .fotka {
+        position: relative;
+    }
+
+    .fotka a {
+        color: white;
+    }
+
+    .fotka p {
+        position: absolute;
+        right: 1rem;
+        bottom: -0.5rem;
+        color: white;
+        
+        
+    }
+
+    .co-musite-videt .fotka p {
+        bottom: -5.5rem;
+    }
+
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+        
+        
+    }
+
+    ul li {
+        width: 50%;
+        position: relative;
+        margin-top: -1em;
+
+    }
+
+    li img {
+        margin: 0;
+        
+    }
+
+    .popisky {
+
+        position: absolute;
+        bottom: 30px;
+        right: -50%;
+        left: -50%;      
+        flex-flow: row nowrap;
+        visibility: visible;
+        
+    }
+
+    li:last-child .popisky {
+        bottom: -10px;
+    }
+
+    .popisky p {
+        font-size: 8pt;
+        color: white;
+    }
+
+    .popisky a {
+        color: white;
+    }
+
+    .popisky:hover {
+        visibility: visible;
+    }
+
+    li:last-child img {
+        margin-top: -0.15rem;
+        margin-bottom: -2.7rem;
+        
+    }
+
+    
+}
+
+
 
