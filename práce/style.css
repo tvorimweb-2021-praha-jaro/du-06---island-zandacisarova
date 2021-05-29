@@ -1,3 +1,6 @@
+/* mám zde strašně moc chyb a blbostí, nepodařilo se mi přidat animaci. Pokusím se vše opravit po zkontrolování.*/
+
+
 html {
     box-sizing: border-box;
 }
@@ -15,11 +18,8 @@ html {
 }
 
 body {
-    max-width: 960px;
     font-family: 'Merriweather', serif;
-    margin: 0;
-    
-    
+    margin: 0;   
 }
 
 header {
@@ -31,11 +31,7 @@ header {
     padding: 2rem;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
-    
-    
-    
-    
+    align-items: center;    
 }
 
 p {
@@ -55,8 +51,7 @@ h1 {
     background-color: white;
     width: 85px;
     opacity: 75%;
-    margin-top: 1rem;
-    
+    margin-top: 1rem;    
 }
 
 .modra-linie {
@@ -64,13 +59,16 @@ h1 {
     background-color: var(--linka);
     width: 100px;
     margin: 2.5rem;
-    margin-left: -2.5rem;
+    margin-left: -1.5rem;
+}
+
+.fotogalerie .modra-linie {
+    margin-left: 0;
 }
 
 .container {
     box-shadow: 0 10px 25px rgba(128, 128, 128, 0.4);
-    
-
+    background-color: var(--pozadi);
 }
 
 img {
@@ -91,8 +89,8 @@ nav {
     padding: 2.5rem;
     font-family: "Raleway"; 
     font-weight: 200;
-
 }
+
 nav a {
     text-transform: uppercase;
     color: grey;
@@ -106,43 +104,32 @@ nav a {
     padding: 0 1.5rem;   
 }
 
-
-
-
 .fotka p,
-li p,
+.popisky p,
 footer p {
     text-align: center;
     color: grey;
     font-size: 11pt;
     font-family: 'Raleway', sans-serif ;
     font-weight: 200;
-
 }
 
 .fotka a,
-li a, 
+.popisky a, 
 footer a{
     color: grey;
 }
-
-
 
 .popisek-fotky {
     font-weight: bold;
     font-size: 13pt;
 }
 
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-ul:last-child {
+.fotogalerie-fotky:last-child {
     padding-bottom: 1.5rem ;
 }
 
-ul li:first-child img{
+.fotogalerie-fotky:first-child img{
     margin-top: 0;
 }
 
@@ -173,8 +160,7 @@ h2 {
 .popisky p {
     margin: 0;
     padding: 0;
-    line-height: 0;
-    
+    line-height: 0;    
 }
 
 .popisky {
@@ -204,12 +190,12 @@ footer p {
     nav {
         
         flex-flow: row nowrap;
-        flex-grow: 1;
-        
+          
     }
 
     nav a {
         border: 0.5px solid rgba(128, 128, 128, 0.1);
+        flex-grow: 1;
     }
 
     nav a:first-child {
@@ -232,70 +218,163 @@ footer p {
         position: absolute;
         right: 1rem;
         bottom: -0.5rem;
-        color: white;
-        
-        
+        color: white;   
     }
 
     .co-musite-videt .fotka p {
         bottom: -5.5rem;
     }
 
-    ul {
+    .fotogalerie-seznam {
         display: flex;
-        flex-flow: row wrap;
-        
-        
-    }
-
-    ul li {
-        width: 50%;
-        position: relative;
-        margin-top: -1em;
-
-    }
-
-    li img {
-        margin: 0;
-        
-    }
-
-    .popisky {
-
-        position: absolute;
-        bottom: 30px;
-        right: -50%;
-        left: -50%;      
-        flex-flow: row nowrap;
-        visibility: visible;
-        
-    }
-
-    li:last-child .popisky {
-        bottom: -10px;
+        flex-flow: row wrap;   
     }
 
     .popisky p {
-        font-size: 8pt;
+        font-size: 14pt;
         color: white;
+        font-weight: bolder;
+    }
+
+    .popisky p:last-child {
+        font-size: 10pt;
+        font-weight: normal;
     }
 
     .popisky a {
         color: white;
     }
 
-    .popisky:hover {
-        visibility: visible;
+    .popisky {
+        width: 100%;
+        height: 100px;
+        margin: 0;    
+        flex-flow: row nowrap;  
+        padding-top: 40px;  
+        position: absolute;           
+        bottom: 0px;     
     }
 
-    li:last-child img {
-        margin-top: -0.15rem;
-        margin-bottom: -2.7rem;
+    .fotogalerie-fotky:nth-child(7) .popisky {
+        bottom: 14px;
+    }
+
+    .fotogalerie-fotky:nth-child(8) .popisky {
+        bottom: 14px;
+    }
+
+    .fotogalerie-fotky:nth-child(9) .popisky {
+        bottom: 37px;
+    }
+
+    .fotogalerie-fotky {
+        position: relative;  
+    }
+
+    .fotogalerie-fotky img {
+        margin-top: 0;   
+    }
+
+    .fotogalerie-fotky:last-child {
+        margin-top: -14px;
+    }
+
+    .fotogalerie-fotky:hover .popisky{     
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));      
+    }
+
+    @media screen and (min-width: 980px) {
+
+        header {
+            height: 400px;
+        }
+
+        header p:first-of-type {
+            width: 60%;
+        }
+
+        .container {
+            width: 960px;
+            margin: 0 auto;
+            position: relative;
+            top: -60px;
+            z-index: 1;
+        }
+
+        main {
+            display: flex;
+        }
+
+        nav {
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            text-align: left;
+            height: 20px;
+        }
+
+        nav a {
+            border-left: none;
+            border-right: none;
+        }
+
+        .uvod { 
+            padding-top: 2rem;
+        }
+
+        .tema p {
+            width: 75%;
+            padding-left: 2rem;       
+        }
+
+        .co-musite-videt {
+            overflow: hidden;    
+        }
+
+        .co-musite-videt .fotka p {
+            position: relative;
+            right: -450px;
+            bottom: 40px;
+        }
+
+        .co-musite-videt h2,
+        .co-musite-videt .modra-linie {
+            position: relative;
+            left: 260px;
+        }
+
+        .mista-mista  {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-end;
+        }
+
+        .fotogalerie-fotky {
+            width: 30%;
+        }
+
+        .fotogalerie-fotky:last-child {
+            top: 14px;
+        }
+
+        .fotogalerie-fotky:nth-child(7) .popisky{
+            bottom: 23px;
+        }
+
+        .fotogalerie-fotky:nth-child(8) .popisky{
+            bottom: 23px;
+        }
         
-    }
-
-    
+        .fotogalerie-seznam {
+            justify-content: center;           
+        }   
+        
+        footer {
+            padding-left: 150px;
+        }
+    }    
 }
+
+
 
 
 
