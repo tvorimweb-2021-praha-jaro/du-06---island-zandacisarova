@@ -31,11 +31,52 @@ header {
     padding: 2rem;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;    
+    align-items: center;  
+    color: white;  
+}
+
+.jana {
+    position: relative;
+    
+}
+
+.jana::after {
+    position: absolute;
+    content: " ";
+    width: 100px;
+    border-top: 2px solid white;
+    left: 25%;
+    bottom: 40px;
+
+}
+
+.nadpis-sekce {
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+
+
+}
+
+.nadpis-sekce::after {
+    position: absolute;
+    content: " ";
+    width: 100px;
+    border-bottom: 2px solid var(--linka);
+    left: -25px;
+    top: 50px;
+    
+}
+
+.fotogalerie .nadpis-sekce {
+    padding-left: 2rem;
 }
 
 p {
-    font-size: 13pt;
+    font-size: 1rem;
     letter-spacing: 0.5px;
     word-spacing: 1px;
     line-height: 1.5;
@@ -46,27 +87,13 @@ h1 {
     margin: 1rem;
 }
 
-.linie {
-    border: 1px solid white;
-    background-color: white;
-    width: 85px;
-    opacity: 75%;
-    margin-top: 1rem;    
-}
 
-.modra-linie {
-    border: 2.5px solid var(--linka);
-    background-color: var(--linka);
-    width: 100px;
-    margin: 2.5rem;
-    margin-left: -1.5rem;
-}
 
-.fotogalerie .modra-linie {
-    margin-left: 0;
-}
 
-.container {
+
+
+
+main {
     box-shadow: 0 10px 25px rgba(128, 128, 128, 0.4);
     background-color: var(--pozadi);
 }
@@ -74,7 +101,7 @@ h1 {
 img {
     width: 100%;
     margin-top: 2rem;
-    margin-bottom: -0.5rem;
+    display: block;
 }
 
 [alt="Island"] {
@@ -83,20 +110,31 @@ img {
 
 nav {
     width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    text-align: center;
     padding: 2.5rem;
     font-family: "Raleway"; 
     font-weight: 200;
 }
 
-nav a {
+nav ul {
+    padding-left: 0;
+}
+
+nav li {
+    list-style-type: none;
+    padding: 0.5rem 0;
+    text-align: center;
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.1);
+}
+
+nav li a {
     text-transform: uppercase;
     color: grey;
-    padding: 0.5rem;
-    border-bottom: 0.5px solid rgba(128, 128, 128, 0.1);
-    font-size: 10pt;
+    padding: 0.5rem;   
+    font-size: 1rem;
+    text-decoration: none;
+    
+
+    
 }
 
 .uvod,
@@ -109,7 +147,7 @@ nav a {
 footer p {
     text-align: center;
     color: grey;
-    font-size: 11pt;
+    font-size: 0.8rem;
     font-family: 'Raleway', sans-serif ;
     font-weight: 200;
 }
@@ -122,7 +160,7 @@ footer a{
 
 .popisek-fotky {
     font-weight: bold;
-    font-size: 13pt;
+    font-size: 1rem;
 }
 
 .fotogalerie-fotky:last-child {
@@ -133,15 +171,8 @@ footer a{
     margin-top: 0;
 }
 
-h2 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 24pt;
-    margin-top: 3rem;
-}
 
-.fotogalerie h2 {
-    padding-left: 2rem;
-}
+
 
 .mista {
     font-weight: 900;
@@ -153,6 +184,7 @@ h2 {
 }
 
 .fotogalerie {
+    display: block;
     padding: 0;
     margin: 0;
 }
@@ -182,29 +214,30 @@ footer p {
     font-weight: 400;  
 }
 
-.co-musite-videt p:last-child {
+.co-musite-videt p:last-child :not(.fotka p){
     margin-bottom: 6rem;
 }
 
 @media screen and (min-width: 480px) {
-    nav {
+    nav ul {
         
+
+        display: flex;
         flex-flow: row nowrap;
           
     }
 
-    nav a {
-        border: 0.5px solid rgba(128, 128, 128, 0.1);
+    nav li {
         flex-grow: 1;
+        border-top: 0.5px solid rgba(128, 128, 128, 0.1);
+        border-left: 0.5px solid rgba(128, 128, 128, 0.1);
     }
 
-    nav a:first-child {
+    nav li:first-child {
         border-left: none;
     }
 
-    nav a:last-child {
-        border-right: none;
-    }
+   
 
     .fotka {
         position: relative;
@@ -231,13 +264,13 @@ footer p {
     }
 
     .popisky p {
-        font-size: 14pt;
+        font-size: 1.3rem;
         color: white;
         font-weight: bolder;
     }
 
     .popisky p:last-child {
-        font-size: 10pt;
+        font-size: 0.9rem;
         font-weight: normal;
     }
 
@@ -293,7 +326,7 @@ footer p {
             width: 60%;
         }
 
-        .container {
+        main {
             width: 960px;
             margin: 0 auto;
             position: relative;
@@ -301,7 +334,9 @@ footer p {
             z-index: 1;
         }
 
-        main {
+        
+
+        .hero {
             display: flex;
         }
 
@@ -336,8 +371,7 @@ footer p {
             bottom: 40px;
         }
 
-        .co-musite-videt h2,
-        .co-musite-videt .modra-linie {
+        .co-musite-videt .nadpis-sekce {
             position: relative;
             left: 260px;
         }
