@@ -100,7 +100,7 @@ main {
 
 img {
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 0;
     display: block;
 }
 
@@ -163,16 +163,11 @@ footer a{
     font-size: 1rem;
 }
 
-.fotogalerie-fotky:last-child {
-    padding-bottom: 1.5rem ;
-}
+
 
 .fotogalerie-fotky:first-child img{
     margin-top: 0;
 }
-
-
-
 
 .mista {
     font-weight: 900;
@@ -189,14 +184,23 @@ footer a{
     margin: 0;
 }
 
+.fotogalerie-fotky:last-child {
+    margin-top: -1rem;
+}
+
 .popisky p {
     margin: 0;
     padding: 0;
-    line-height: 0;    
+        
+}
+
+.popisky p:first-child {
+    font-weight: bold;
 }
 
 .popisky {
-    margin-top: 1.7rem;
+    
+    padding: 1.5rem;
 }
 
 footer {
